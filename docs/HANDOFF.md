@@ -322,10 +322,78 @@ Unverified. Check: (1) can it call HTTP APIs/MCP servers; (2) real iMessage chan
 2. Look for a **tour/inquiry log** in Gmail and Drive (none found yet).
 3. Decide the back end; then scaffold the site and booking flow in this repo, starting with **date-check → tour booking** with measurable conversion events.
 4. Draft (don't send) request emails to Raydient and Marli in Gmail drafts.
-5. Do a proper **competitor audit** of top venue sites and tour-booking flows.
+5. ~~Do a proper **competitor audit** of top venue sites and tour-booking flows.~~ Done 2026-11-24; see 15.4.
 
 ---
 
 ## 14. Build status (2026-11-24)
 
 The staged site now exists in this repo (see `README.md`): Next.js 16 + Postgres, custom backend ("custom but unbreakable"). Date check with prices and nearby open Fri/Sun/off-season alternatives, self-serve tour booking, sticky mobile tour bar, pricing page, conversion events, transactional message outbox (approval mode, log-only providers), unit + integration tests and CI. Not deployed; `noindex`. Open decisions: base branch, Vercel project and database host, messaging providers, tour schedule, and when automated messages may go live.
+
+---
+
+## 15. New findings (2026-11-24): Drive search via ChatGPT and the competitor tour-booking audit
+
+Sources: Shane's ChatGPT conversation "Wedding Market Strategy" (ChatGPT searched his Drive; figures not re-verified here) and Shane's Claude doc "Venue tour-booking audit" (https://claude.ai/artifact/8V38Jc6JSDgcJcrNcWMnD7), which completes the competitor audit listed in section 13. No couples' personal data or credentials are included.
+
+### 15.1 New since the earlier sections
+
+#### Bookings and revenue by year (annual Weddings Spreadsheets)
+| Year | Bookings | Booking-sheet revenue | Avg / booking |
+|---|---|---|---|
+| 2023 | 100 | $358,395 | $3,584 |
+| 2024 | 100 | $414,040 | $4,140 |
+| 2025 | 97 | $418,680 | $4,316 |
+| 2026 | 86 | $372,030 | $4,326 |
+| 2027 | 66 (so far) | $357,815 | $5,421 |
+| 2028 | 4 or 5 (sheet doesn't reconcile) | $29,380 or $23,580 | n/a |
+
+Section 4 only had 2027. Booking-sheet counts (100/100/97/86) differ from the survey-based "where brides hear about us" totals (106/102/93/88).
+
+#### 2026 seasonality (bookings / revenue)
+Jan 2 / $1,750 · Feb 1 / $1,050 · Mar 1 / $1,500 · Apr 7 / $21,780 · May 9 / $34,040 · Jun 10 / $40,270 · Jul 16 / $82,983 · Aug 17 / $76,215 · Sep 11 / $58,130 · Oct 9 / $38,013 · Nov 1 / $10,000 · Dec 2 / $6,300. Jul–Sep = $217,328 (58%).
+
+#### Other financial cross-checks
+- Card processing (Chase Paymentech), Sep 2024–Aug 2026: net settled $876,977 (Sep–Dec 2024 $98,141; 2025 $409,172; Jan–Aug 2026 $369,664). Cash timing, not recognized revenue.
+- Operating summary, "Weddings & Events" line: 2023 actual $433,306; 2024 actual $480,403; 2025 forecast $316,740; 2026 forecast $397,000. Does not reconcile to booking sheets; no reconciliation file exists.
+- Wedding/event deposits held as of 2026-09-30: $248,909.
+
+#### Analytics detail
+GA4 wedding site (Jan 2024–Sep 2026): avg engagement 1m 22s per active user (handoff had this as unreadable). Other numbers match the handoff.
+
+#### Digital accounts (from the seller's credentials workbook; secrets not reproduced)
+Not previously known: wedding site CMS is **Umbraco**; **Calendly** is used for tour scheduling; also Linktree, Canva, Mailchimp (weddings + town), PicTime and Pass Gallery (photo albums), Two Bright Lights, SurveyMonkey, Pinterest, Eventbrite, Humanitix, FestivalNet, EventStable, Puyallup Wedding Show portal. Zola listing is noted as free. Legal owner/admin is NOT FOUND for nearly all of them. Seller contacts: weddings (Eric Ayala), town (Pete Orbea).
+
+#### Marketing collateral found
+Sound Publishing / Kitsap Wedding Guide 2025 ads (back page, quarter page), Sound Ad Club ads (Aug, Dec 2023), 2026 W&W wedding rack cards. Spend: none found.
+
+#### Strategy framing from the chat (ChatGPT's opinion, not data)
+- Kitsap County: ~1,730 weddings and ~$75.7M wedding spend in 2025 (The Wedding Report). PG at ~100/yr ≈ 5.8% share; suggested target 5–7% (85–120 weddings), plan on 90–100.
+- Plan figure: 100 weddings × ~$12K average property revenue ≈ $1.2M. Note: today's booking-sheet average is ~$4.3K–$5.4K, so this depends on adding coordination, bar, rentals, lodging, extra hours, etc.
+- Competitors: Kiana Lodge ~$10,000 peak Saturday before mandatory catering/service fee; Farm Kitchen $10,000 2027 weekend package and fully booked for 2026.
+- Positioning: sell the Kitsap destination to the Central Puget Sound market (Seattle, Edmonds, Bainbridge, Tacoma), not just Kitsap residents.
+- Future barn/farm venue in the Ag District as a second wedding identity ("waterfront" vs "farm"); phased 2027 landscaping, 2028 sailcloth pilot (10–15 weddings), 2029 permanent barn; ChatGPT guesses +$0.5M–$1M+ at maturity. Town survey: 64% want more events.
+
+### 15.2 Conflicts with the handoff to resolve
+- Section 2 says Book a Tour has no scheduler; a Calendly account for tours exists. Confirm whether tours are booked via Calendly today (would also hold tour history).
+- Wedding counts differ between booking sheets and survey totals (see above).
+- 2028 workbook totals don't reconcile.
+
+### 15.3 Still missing for the site (request from seller)
+- Clean current rate sheet, including Oct–Apr seasonal package prices, 2028 prices, and the extra-hour rate ($280 vs $300).
+- Photography rights / photographer licenses for website images; no image library with usage rights.
+- Domain registrar and legal registrant for portgambleweddings.com and portgamble.com; transfer/auth codes.
+- Google Business Profile ownership; GA4 admin/owner for both properties.
+- Lead/inquiry log, tour log and counts, lead→tour and tour→booking rates (the 75% claim is still unverified). Possibly recoverable from Calendly.
+- Marketing spend by channel/month; The Knot/WeddingPro, WeddingWire, Here Comes the Guide costs.
+- Legal ownership of social and listing accounts; confirmation that all digital accounts transfer at closing.
+- Reconciliation of booking-sheet revenue vs P&L vs card cash.
+
+### 15.4 Added from "Venue tour-booking audit" (Shane's doc, 2026-11-24)
+This doc closes the handoff's open "competitor audit" item: 12 venue sites walked from home page to tour step.
+- Only 2 of 12 let couples self-book a tour slot (Abernethy Center via Microsoft Bookings, weekdays only; Legacy Hill Farm via Acuity). None of the 9 PNW sites promises a reply in minutes (24–48 hrs stated).
+- No venue suggests nearby open dates when the asked date is taken; Legacy Hill only jumps to the next open date.
+- Competitor price benchmarks (peak Saturday unless noted): Kiana Lodge $10,000 (+$100pp F&B min; matches the ChatGPT figure); Bridal Veil Lakes $9,500; Kelley Farm $6,500–11,000 (May–Sep Fri–Sun); Novelty Hill-Januik $5,500–10,500, typical all-in $28K–55K; Abernethy from $15,000; Trinity Tree Farm $3,500–8,900; Legacy Hill per-date (e.g. $7,795 Fri May 7 2027). Port Gamble's 2027 peak Saturday combination is $7,250, at or below most of these.
+- Recommendations the staged site already appears to cover: in-page self-booked tour, date checker that answers in words with price, nearest-open-date alternatives, sticky mobile bar, SMS opt-in.
+- Recommendations not yet in the staged site: a "Text us" (sms:) tap target in the sticky bar; an all-in budget example on pricing; off-peak offers (Fri/Sun/weekday, e.g. "Secret Sunday", booking-deadline promo); open houses and/or a 3D/virtual tour for Seattle-area couples; an optional "where are you in your search" question; tour form is longer than the suggested five fields (first/last name split, optional package, notes). Online date hold is a "decide later" item.
+- Tool fit: one tour scheduler with webhooks feeding the CRM; replace the public Google Calendar rather than run beside it. Note: the seller already uses Calendly for tours (15.1); its booking history may answer the tour-log gap.
