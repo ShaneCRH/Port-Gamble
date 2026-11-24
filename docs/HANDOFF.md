@@ -323,3 +323,9 @@ Unverified. Check: (1) can it call HTTP APIs/MCP servers; (2) real iMessage chan
 3. Decide the back end; then scaffold the site and booking flow in this repo, starting with **date-check → tour booking** with measurable conversion events.
 4. Draft (don't send) request emails to Raydient and Marli in Gmail drafts.
 5. Do a proper **competitor audit** of top venue sites and tour-booking flows.
+
+---
+
+## 14. Build status (2026-11-24)
+
+The staged site now exists in this repo (see `README.md`): Next.js 16 + Postgres, custom backend ("custom but unbreakable"). Date check with prices and nearby open Fri/Sun/off-season alternatives, self-serve tour booking, sticky mobile tour bar, pricing page, conversion events, transactional message outbox (approval mode, log-only providers), unit + integration tests and CI. Not deployed; `noindex`. Open decisions: base branch, Vercel project and database host, messaging providers, tour schedule, and when automated messages may go live.
