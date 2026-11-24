@@ -13,7 +13,13 @@ Shane is acquiring Port Gamble (a historic WA mill town and its wedding venue) a
 1. **Never send anything to couples, leads, vendors or the seller** (email, SMS, iMessage, posts) without Shane's explicit approval of that specific message. Drafts are fine (e.g., Gmail drafts).
 2. **Never spend money** (ads, domains, purchases, paid tools) or change billing without explicit approval.
 3. **Do not modify, redirect or cut over the live sites or any seller-owned account** (domains, CMS, Google Business Profile, GA, social, The Knot/WeddingWire, Constant Contact). Digital-asset transfer is an *open diligence item*; the acquisition has not closed. Build and stage in parallel only.
-4. **Privacy:** couples' names, emails, phones and addresses live in the source spreadsheets in Drive. Do not copy them into the git repo, logs, PRs or third-party services. Use aggregates or IDs. Never open or reproduce credentials (a file named `PG DD L66 PGWE Passwords.xlsx` exists in Drive; do not open it; recommend moving logins to a password manager).
+4. **Couples' personal details (names, emails, phones, addresses) — access is authorized.** Shane has approved the agent reading them from the source spreadsheets in Drive (e.g., the *Contact Sheet* tab of each year's Weddings Spreadsheet) for legitimate business use: building the CRM/lead database, tour and wedding-day reminders, post-wedding review requests, and reporting. Handling rules:
+   - **Never commit them to git** (not in code, fixtures, docs, test data, PR text or commit messages). Use fake data in tests.
+   - Store them only in the production CRM/database the project sets up (access-controlled, encrypted at rest), not in chat logs, notes or third-party tools Shane hasn't approved.
+   - Share them with no one else and send them to no outside service except the messaging/CRM providers Shane approves for this project.
+   - Contacting any couple is still governed by rule 1 (explicit approval of each message or each automated sequence).
+   - **Timing caution:** the acquisition has not closed, and this data came through the seller's due-diligence process under an NDA. Before using it to contact couples, or importing it into a live system, confirm with Shane (and, ideally, counsel) that the purchase agreement and NDA allow it. Until then, read it for analysis and for building/testing the system only.
+   - Never open or reproduce credentials (a file named `PG DD L66 PGWE Passwords.xlsx` exists in Drive; do not open it; recommend moving logins to a password manager).
 5. **Report honestly:** state what you verified vs. inferred. Numbers in the handoff came partly from OCR of screenshots and from survey-based "how did you hear about us" counts.
 6. Don't invent facts about "Rakazo" (a self-hostable agent tool Shane mentioned); it could not be verified. Ask him.
 

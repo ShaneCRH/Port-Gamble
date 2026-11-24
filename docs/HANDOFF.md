@@ -1,6 +1,6 @@
 # Port Gamble Weddings & Events — Project Handoff
 
-Written 2026-11-24 from a working session with Shane Evans. This is the full context for whoever (a person, a Claude session, or an agent) continues the work. It is deliberately detailed, not a summary. Couples' names, emails, phone numbers and addresses are **intentionally excluded** from this file (they exist in the source spreadsheets in Drive); everything else we learned is here.
+Written 2026-11-24 from a working session with Shane Evans. This is the full context for whoever (a person, a Claude session, or an agent) continues the work. It is deliberately detailed, not a summary. Couples' names, emails, phone numbers and addresses are **intentionally excluded** from this file (they exist in the source spreadsheets in Drive, e.g. the *Contact Sheet* tab; Shane has authorized agent access to them under the handling rules in `docs/AGENT_BRIEF.md` §2.4); everything else we learned is here.
 
 ---
 
